@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     
+    <title>Page Title</title>
+    <script src="/socket.io/socket.io.js"></script>
+      <script>
+      var socket = io();
+      socket.on('connect',()=>{
+         console.log('connect to server')
+      })
+      
+      socket.on('disconnect', ()=>{
+         console.log('disconnected from server')
+      })
+      </script>
+
+</head>
+<body> 
+
+
+<h1>My First Heading</h1>
+ <p>Chat </p>
+
+
+
+ </body> 
+
+
+</html> 
