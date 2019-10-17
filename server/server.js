@@ -1,6 +1,8 @@
 const path = require('path')
 const http = require('http')
 
+
+const {generateMessage} = require('./util/message')
 const socketIO = require('socket.io')
 const express = require('express')
 const publicPath = path.join(__dirname, '/../public')
@@ -18,26 +20,15 @@ io.on('connection',(socket)=>{
     console.log("A new user just connected")
 
 
-        socket.on('createMessage',(message)=>{
+        socket.on('createMessage',(message,callback)=>{
         console.log('Create message',message)
-        io.emit('newMessage',{
-            from: message.from,
-            text: message.text, 
-            createdAt: new Date().getTime()
-        } )
+        io.emit('newMessage',generateMessage(message.from,message.text))
+        callback('This is the server callback')
         })
         
-        socket.emit('newMessage',{
-            from: "admin",
-            text: "Welcome to the chat app", 
-            createdAt: new Date().getTime()
-        })
+        socket.emit('newMessage',generateMessage('Admin','Welcome to the chat'))
 
-        socket.broadcast.emit('newMessage',{
-            from : "Admin", 
-            text: "new user joined",
-            createdAt: new Date().getTime()
-        })
+        socket.broadcast.emit('newMessage',generateMessage('Admin','New message is up'))
 
         // socket.broadcast.emit('newMessage',{
         //         from : message.from,
