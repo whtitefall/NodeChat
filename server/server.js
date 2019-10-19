@@ -28,7 +28,7 @@ io.on('connection',(socket)=>{
         
         socket.emit('newMessage',generateMessage('Admin','Welcome to the chat'))
 
-        socket.broadcast.emit('newMessage',generateMessage('Admin','New message is up'))
+        socket.broadcast.emit('newMessage',generateMessage('Admin','New user is joined'))
 
         // socket.broadcast.emit('newMessage',{
         //         from : message.from,

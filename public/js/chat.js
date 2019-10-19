@@ -1,6 +1,13 @@
 
 var socket = io();
-socket.on('connect',function(){
+
+function scrollToBottom(){
+
+    var messages = document.querySelector('#message_display').lastElementChild
+    messages.scrollIntoView()
+}
+
+socket.on('connection',function(){
    console.log('connect to server')
 
     // socket.emit('createMessage',{
@@ -28,6 +35,8 @@ socket.on('newMessage',function(message){
     div.innerHTML = html 
     
     document.querySelector('body').appendChild(div)
+
+    scrollToBottom()
     // console.log("new Messgae",message)
 
     // const formatedTime = moment(message.createdAt).format('LT')

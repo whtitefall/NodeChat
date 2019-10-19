@@ -1,61 +1,40 @@
 <!DOCTYPE html>
- <html>
- <head>
-     
-    <title>Page Title</title>
-   
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale = 1, user-scalable=no">
+
+    
+
+
+
 </head>
-<body> 
+<body class= "center-from">
+    <div class = "center-from_form">
 
+        <form action="chat.html" >
+            <div class = "form-field"> <h3> Join chat</h3> </div>
+            <div class = "form-field"> 
+                <label>Display name </label>    
+                <input type="text" name="name" autofocus>
+            </div>
+            <div class = "form-field"> 
+                <label>Room name </label>    
+                <input type="text" name="room" autofocus>
+            </div>
 
-<h1>My First Heading</h1>
- <p>Chat </p>
-<form id = "message-form">
+            <div class ="form-field">
 
-<input type="text" name="message" placeholder="message">
+                <button> Join </button>
 
-<button type="submit" id="submit-btn">Click Me!</button>
+            </div>
+        </form>
 
-</form>
+    </div>
 
-<button type="button" id="send-location" >Send Location </button>
- </body> 
-
-      <script id = "message-template" type = "text/template"> 
-      <li class ="message">
-
-         <div class ="message_title">
-         <h4> {{from}} </h4>
-         <span> {{createdAt}} </span>
-         </div>
-
-         <div class = "message_body">
-
-         <p> {{text}} </p>
-         </div>
-
-      </li>
-      </script>
-
-      <script id = "location-template" type = "text/template"> 
-      <li class ="message">
-
-         <div class ="message_title">
-         <h4> {{from}} </h4>
-         <span> {{createdAt}} </span>
-         </div>
-
-         <div class = "message_body">
-
-         <a href = "{{url}}" target = "_blank" > My current location</a>
-         </div>
-
-      </li>
-      </script>
-
-      <script src="/socket.io/socket.io.js"></script>
-      <script src="/js/index.js"></script>
-      <script src="/js/libs/moment.js"></script>
-      <script src="/js/libs/mustache.js"></script>
-</html> 
-
+</body>
+</html>

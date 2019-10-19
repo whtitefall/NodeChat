@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     
+    <title>Page Title</title>
+   <meta name="viewport" content="width=device-width, initial-scale = 1, user-scalable=none">
+</head>
+<body> 
+
+
+<h1>My First Heading</h1>
+ <p>Chat </p>
+<form id = "message-form">
+
+<input type="text" name="message" placeholder="message">
+
+<button type="submit" id="submit-btn">Click Me!</button>
+
+</form>
+
+<button type="button" id="send-location" >Send Location </button>
+ </body> 
+
+      <script id = "message-template" type = "text/template"> 
+     
+      <li class ="message" id = "message_display" >
+
+         <div class ="message_title" >
+         <h4> {{from}} </h4>
+         <span> {{createdAt}} </span>
+         </div>
+
+         <div class = "message_body">
+
+         <p> {{text}} </p>
+         </div>
+
+      </li>
+      </script>
+
+      <script id = "location-template" type = "text/template"> 
+      <li class ="message">
+
+         <div class ="message_title">
+         <h4> {{from}} </h4>
+         <span> {{createdAt}} </span>
+         </div>
+
+         <div class = "message_body">
+
+         <a href = "{{url}}" target = "_blank" > My current location</a>
+         </div>
+
+      </li>
+      </script>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/js/chat.js"></script>
+      <script src="/js/libs/moment.js"></script>
+      <script src="/js/libs/mustache.js"></script>
+</html> 
+
