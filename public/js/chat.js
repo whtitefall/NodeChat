@@ -7,13 +7,29 @@ function scrollToBottom(){
     messages.scrollIntoView()
 }
 
-socket.on('connection',function(){
-   console.log('connect to server')
+socket.on('connect',function(){
 
-    // socket.emit('createMessage',{
-    //     from:"Brad",
-    //     text:"hello"
-    // })
+
+    console.log('connect to server')
+    var params = window.location.search.substring(1)
+
+    var p = JSON.parse('{"'+decodeURI(params).replace(/&/g,'","').replace(/=/g,'":"').replace(/\+/g,' ')+'"}')
+
+    socket.emit('join',p, function(err){
+        if(err){
+            alert(err)
+            window.location.href = '/'
+        }else{
+            console.log('No error')
+        }
+    })
+
+    socket.emit('createMessage',{
+        from:"Brad",
+        text:"hello"
+    },function (){
+        
+    })
 
 })
 

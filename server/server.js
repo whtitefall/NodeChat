@@ -3,6 +3,8 @@ const http = require('http')
 
 
 const {generateMessage,generateLocationMessage} = require('./util/message')
+const {isRealString} = require('./util/isRealString')
+
 const socketIO = require('socket.io')
 const express = require('express')
 const publicPath = path.join(__dirname, '/../public')
@@ -23,12 +25,21 @@ io.on('connection',(socket)=>{
         socket.on('createMessage',(message,callback)=>{
         console.log('Create message',message)
         io.emit('newMessage',generateMessage(message.from,message.text))
-        callback('This is the server callback')
+        callback()
         })
-        
-        socket.emit('newMessage',generateMessage('Admin','Welcome to the chat'))
 
-        socket.broadcast.emit('newMessage',generateMessage('Admin','New user is joined'))
+        socket.on('join',(parms,callback)=>{
+            if(!isRealString(parms.name) || !isRealString(parms.room)){
+                callback('Name and room are required')
+            }
+            socket.join(parms.room)
+
+            socket.emit('newMessage',generateMessage('Admin',`Welcome to ${parms.room}`))
+
+            socket.broadcast.emit('newMessage',generateMessage('Admin','New user is joined'))
+            
+        } )
+        
 
         // socket.broadcast.emit('newMessage',{
         //         from : message.from,
