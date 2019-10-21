@@ -3,8 +3,9 @@ var socket = io();
 
 function scrollToBottom(){
 
-    var messages = document.querySelector('#message_display').lastElementChild
+    var messages = document.querySelector('#messages').lastElementChild
     messages.scrollIntoView()
+    console.log(messages)
 }
 
 socket.on('connect',function(){
@@ -63,7 +64,8 @@ socket.on('newMessage',function(message){
     const div = document.createElement('div')
     div.innerHTML = html 
     div.className += 'message_item'
-    document.querySelector('body').appendChild(div)
+
+    document.querySelector('#messages').appendChild(div)
 
     scrollToBottom()
     // console.log("new Messgae",message)

@@ -30,35 +30,34 @@
 
       <input type="text" name="message" placeholder="message">
 
-      <button type="submit" id="submit-btn">Click Me!</button>
-      <button type="button" id="send-location" >Send Location </button>
+      <button class = "btn waves-effect waves-light" type="submit" id="submit-btn">
+            Send
+      </button>
+      <button class="waves-effect waves-light btn" type="button" id="send-location">   
+         Send Location
+      </button>
 
       </form>
 
       </div>
    
-
-            
+         <ul id="messages" class="chat__messages"></ul>
          <script id = "message-template" type = "text/template" > 
          
-
-            <ul class="list-group">
-
-                  <li class ="list-group-item" id = "message_display" >
-
-                        
-                        <h5>{{from}} </h4>
-                           {{createdAt}} 
-                        <p> {{text}} </p>
-                        
-         
-                     </li>
-               </ul>
+            <li id="test">
+                  <div class="message__title">
+                    <h4>{{from}}</h4>
+                    <span>{{createdAt}}</span>
+                  </div>
+                  <div class="message__body">
+                    <p>{{text}}</p>
+                  </div>
+            </li>
         
             </script>
 
             <script id = "location-template" type = "text/template"> 
-            <li class ="message">
+            <li id ="test">
 
                <div class ="message_title">
                <h4> {{from}} </h4>
