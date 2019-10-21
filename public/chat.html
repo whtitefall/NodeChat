@@ -1,62 +1,85 @@
 <!DOCTYPE html>
  <html>
- <head>
+   <head>
      
-    <title>Page Title</title>
-   <meta name="viewport" content="width=device-width, initial-scale = 1, user-scalable=no">
-</head>
-<body> 
+      <title>Page Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale = 1, user-scalable=no">
+      <link rel="stylesheet" type="text/css" href="./css/chat_style.css">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+   </head>
+
+   <body> 
 
 
-<h1>My First Heading</h1>
- <p>Chat </p>
-<form id = "message-form">
+      <h3>Current users</h3>
+      <div id="user-list">
 
-<input type="text" name="message" placeholder="message">
-
-<button type="submit" id="submit-btn">Click Me!</button>
-
-</form>
-
-<button type="button" id="send-location" >Send Location </button>
- </body> 
-
-      <script id = "message-template" type = "text/template"> 
+      </div>
+      
      
-      <li class ="message" id = "message_display" >
+      <div class="message-send">
 
-         <div class ="message_title" >
-         <h4> {{from}} </h4>
-         <span> {{createdAt}} </span>
-         </div>
+    
 
-         <div class = "message_body">
+      <form id = "message-form">
 
-         <p> {{text}} </p>
-         </div>
+      <input type="text" name="message" placeholder="message">
 
-      </li>
-      </script>
+      <button type="submit" id="submit-btn">Click Me!</button>
+      <button type="button" id="send-location" >Send Location </button>
 
-      <script id = "location-template" type = "text/template"> 
-      <li class ="message">
+      </form>
 
-         <div class ="message_title">
-         <h4> {{from}} </h4>
-         <span> {{createdAt}} </span>
-         </div>
+      </div>
+   
 
-         <div class = "message_body">
+            
+         <script id = "message-template" type = "text/template" > 
+         
 
-         <a href = "{{url}}" target = "_blank" > My current location</a>
-         </div>
+            <ul class="list-group">
 
-      </li>
-      </script>
+                  <li class ="list-group-item" id = "message_display" >
 
-      <script src="/socket.io/socket.io.js"></script>
-      <script src="/js/chat.js"></script>
-      <script src="/js/libs/moment.js"></script>
-      <script src="/js/libs/mustache.js"></script>
+                        
+                        <h5>{{from}} </h4>
+                           {{createdAt}} 
+                        <p> {{text}} </p>
+                        
+         
+                     </li>
+               </ul>
+        
+            </script>
+
+            <script id = "location-template" type = "text/template"> 
+            <li class ="message">
+
+               <div class ="message_title">
+               <h4> {{from}} </h4>
+               <span> {{createdAt}} </span>
+               </div>
+
+               <div class = "message_body">
+
+               <a href = "{{url}}" target = "_blank" > My current location</a>
+               </div>
+
+            </li>
+            </script>
+
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="/js/chat.js"></script>
+            <script src="/js/libs/moment.js"></script>
+            <script src="/js/libs/mustache.js"></script>
+        
+   </body> 
+      
+
 </html> 
 

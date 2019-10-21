@@ -1,0 +1,15 @@
+.message_item{
+    display: flex;
+    justify-content: center;
+    /* border:1px solid black; */
+    align-items: center;
+    text-align: center;
+}
+
+
+.message-send{
+
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}

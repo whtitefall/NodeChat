@@ -24,17 +24,30 @@ socket.on('connect',function(){
         }
     })
 
-    socket.emit('createMessage',{
-        from:"Brad",
-        text:"hello"
-    },function (){
+    // socket.emit('createMessage',{
+    //     from:"Brad",
+    //     text:"hello"
+    // },function (){
         
-    })
+    // })
 
 })
 
 socket.on('disconnect', function(){
    console.log('disconnected from server')
+})
+
+socket.on('updateUserLisr',function(users){
+    var ol = document.createElement('ol')
+    users.forEach(function(user){
+        let li = document.createElement('li')
+        li.innerHTML = user
+        ol.appendChild(li)
+    })
+
+    var userList = document.querySelector('#user-list')
+    userList.innerHTML = ''
+    userList.appendChild(ol)
 })
 
 socket.on('newMessage',function(message){
@@ -49,7 +62,7 @@ socket.on('newMessage',function(message){
 
     const div = document.createElement('div')
     div.innerHTML = html 
-    
+    div.className += 'message_item'
     document.querySelector('body').appendChild(div)
 
     scrollToBottom()
@@ -72,7 +85,7 @@ socket.on('newLocationMessage',function(message){
         })
         const div = document.createElement('div')
         div.innerHTML = html 
-        
+        div.className += 'message_item'
         document.querySelector('body').appendChild(div)
         // const formatedTime = moment(message.createdAt).format('LT')
         // console.log('Location message ', message)
