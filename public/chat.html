@@ -14,32 +14,35 @@
    </head>
 
    <body> 
+      <div class="all">
 
 
-      <h3>Current users</h3>
-      <div id="user-list">
-
-      </div>
-      
-     
-      <div class="message-send">
-
-    
-
-      <form id = "message-form">
-
-      <input type="text" name="message" placeholder="message">
-
-      <button class = "btn waves-effect waves-light" type="submit" id="submit-btn">
-            Send
-      </button>
-      <button class="waves-effect waves-light btn" type="button" id="send-location">   
-         Send Location
-      </button>
-
-      </form>
+      <div class="user">
+         <div class="user-list">
+               <h3>Current users</h3>
+               <div id="user-list">
+                 
+               </div>
+         </div>
 
       </div>
+      <div class="message_container">
+            <div class="message-send">
+
+                  <form id = "message-form">
+            
+                  <input type="text" name="message" placeholder="message">
+            
+                  <button class = "btn waves-effect waves-light" type="submit" id="submit-btn">
+                        Send
+                  </button>
+                  <button class="waves-effect waves-light btn" type="button" id="send-location">   
+                     Send Location
+                  </button>
+            
+                  </form>
+            
+            </div>
    
          <ul id="messages" class="chat__messages"></ul>
          <script id = "message-template" type = "text/template" > 
@@ -77,6 +80,19 @@
             <script src="/js/libs/moment.js"></script>
             <script src="/js/libs/mustache.js"></script>
         
+
+         </div>
+         <div class="weather">
+
+            <div class="weather-content">
+                  <h2>Weather</h2>
+            </div>
+            
+   
+         </div>
+
+      
+      </div>
    </body> 
       
 

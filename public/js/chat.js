@@ -5,7 +5,7 @@ function scrollToBottom(){
 
     var messages = document.querySelector('#messages').lastElementChild
     messages.scrollIntoView()
-    console.log(messages)
+
 }
 
 socket.on('connect',function(){
