@@ -117,6 +117,10 @@ app.get('/video', function(req, res) {
     }
   });
 
+  app.get('/test',function(req,res) {
+    res.sendFile(path.join(__dirname,'../public/test.html'));
+  });
+
 server.listen(port,()=>{
     console.log(`Server is up on port ${port}`)
 })
